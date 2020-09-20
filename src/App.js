@@ -144,7 +144,7 @@ class App extends Component {
                     }}
                   >
                     <h2>Conversion</h2>
-                    <div class="col">
+                    <div className="col">
                       <label>Swedish Krona</label>
                       <input
                         className="input_text effect_shadow"
@@ -152,7 +152,7 @@ class App extends Component {
                         onChange={e => this.setState({ amount: e.target.value })}
                       />
                     </div>
-                    <div class="col">
+                    <div className="col">
                       <label>{this.state.country.currencies[0].name}</label>
                       <div className="input_text effect_shadow">
                         {!isNaN(this.state.conversion)
@@ -166,7 +166,7 @@ class App extends Component {
               <div style={{ width: '100vw', height: '50vh' }}>
                 <div className="row"><h2>Location</h2></div>
                 <GoogleMapReact
-                  bootstrapURLKeys={{ key: 'AIzaSyBSgO8HD2VBqKTUUuLt2AKbD5DLhuolYY0' }}
+                  bootstrapURLKeys={{ key: process.env.REACT_APP_GMAPS }}
                   options={createMapOptions}
                   defaultZoom={5}
                   defaultCenter={this.state.location}
@@ -180,7 +180,7 @@ class App extends Component {
                 <div>{this.state.stage}</div>
                 {this.state.stage === error
                   ? (
-                    <img className="effect_shadow" src={king} />
+                    <img alt="its a joke." className="effect_shadow" src={king} />
                   ) : null
                 }
               </div>
